@@ -1,0 +1,22 @@
+body {
+	background-color: #FFFCE8; 
+	font-family: 'Merriweather', serif; 
+}
+
+h1 {
+	text-align: center;
+	margin-top: 15%;
+	margin-bottom: 2%
+}
+
+.btn-primary {
+	margin-left: 90%; 
+}
+
+.btn-secondary {
+	margin-right: 50%;
+}
+
+.form-label {
+	margin-top: .5%;
+}

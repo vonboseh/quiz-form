@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Questionnaire</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/d8f7be9343.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/d8f7be9343.js" crossorigin="anonymous"></script>
+
+	<style>
+		
+		.right {
+			color: #94FBAB;
+			font-size: 20px;
+		}
+
+		.wrong {
+			color: #E8AEB7;
+			font-size: 20px;
+		}
+
+	</style>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				
+				<h1>Questionnaire</h1>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<form>
+				<p>	
+				<label class="form-label">Q1. Old McDonald had a _____?</label>
+				<input class="form-control" type="text" id="answer1" placeholder="Type answer here">
+				<div id="grade1"></div>
+				</p>
+
+				<p>
+				<label class="form-label">Q2. The ___ jumped over the moon.</label>
+				<input class="form-control" type="text" id="answer2" placeholder="Type answer here">
+				<div id="grade2"></div>
+				</p>
+
+				<p>
+				<label class="form-label">Q3. Jack & Jill went ____ the hill to fetch a pail of water.</label>
+				<input class="form-control" type="text" id="answer3" placeholder="Type answer here">
+				<div id="grade3"></div>
+				</p>
+
+				<p>
+				<label class="form-label">Q4. What should I count if I can't sleep?</label>
+				<input class="form-control" type="text" id="answer4" placeholder="Type answer here">
+				<div id="grade4"></div>
+				</p>
+
+				<p>
+				<label class="form-label">Q5. Humpty Dumpty sat on a ____.</label>
+				<input class="form-control" type="text" id="answer5" placeholder="Type answer here">
+				<div id="grade5"></div>
+				</p>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+
+				<p>
+				<button id="checkAnswers" class="btn btn-primary">Grade</button>
+				</p>
+
+			</div>
+			<div class="col-sm-6">
+
+				<p>
+				<button id="resetForm" class="btn btn-secondary">Restart</button>
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+		document.getElementById("checkAnswers").addEventListener('click', checkAnswer); 
+		document.getElementById("resetForm").addEventListener('click', resetForm);
+
+		function checkAnswer() {
+			let answers = ['farm', 'cow', 'up', 'sheep', 'wall'];
+
+			for (var i = 0; i < answers.length; i++) {
+
+				let fieldId = i + 1;
+
+				let answer = document.getElementById('answer' + fieldId).value;
+				let grade = document.getElementById('grade' + fieldId);
+
+				if (answer == answers[i]) {
+					//its correct
+					grade.innerHTML = '<i class="fas fa-check right"></i>';
+				}
+
+				else {
+					//its wrong
+					grade.innerHTML = '<i class="fas fa-times wrong"></i>';
+				}
+			}
+		} 
+
+		function resetForm() {
+
+			let answers = ['farm', 'cow', 'up', 'sheep', 'wall']
+
+			for (var i = 0; i < answers.length; i++) {
+
+				let fieldId = i + 1
+
+				let answer = document.getElementById('answer' + fieldId).value = '';
+				let grade = document.getElementById('grade' + fieldId).innerHTML = '';
+			}
+		}
+
+	</script>
+
+</body>
+</html>
